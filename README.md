@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pescobar/ansible-role-postgres.svg?branch=master)](https://travis-ci.org/pescobar/ansible-role-postgres)
+
 ansible-role-postgres
 =========
 
