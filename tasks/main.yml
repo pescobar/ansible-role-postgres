@@ -24,12 +24,12 @@
     owner: root
     group: root
     mode: 0644
-  when: generic_postgresql == False
+  when: not generic_postgresql
 
 - name: Reload changes
   systemd:
     daemon_reload: yes
-  when: generic_postgresql == False
+  when: not generic_postgresql
 
 - name: Check if postgres has been initialized
   stat:
@@ -43,17 +43,17 @@
     owner: postgres
     group: postgres
     mode: 0700
-  when: generic_postgresql == False
+  when: not generic_postgresql
 
 - name: Initialize postgres
   command: "/usr/pgsql-{{ postgres_version }}/bin/postgresql{{ postgres_version_no_dots }}-setup initdb"
   environment:
     PGSETUP_INITDB_OPTIONS: '--pgdata=/data/psql01'
-  when: (postgres_initialized.stat.exists == False) and (generic_postgresql == False)
+  when: (not postgres_initialized.stat.exists) and (not generic_postgresql)
 
 - name: Initialize postgres
   command: "/usr/pgsql-{{ postgres_version }}/bin/postgresql{{ postgres_version_no_dots }}-setup initdb"
-  when: (postgres_initialized.stat.exists == False) and (generic_postgresql == True)
+  when: (not postgres_initialized.stat.exists) and (generic_postgresql)
 
 - name: copy /data/psql01/pg_hba.conf
   template:
@@ -62,7 +62,7 @@
     owner: postgres
     group: postgres
     mode: 0600
-  when: generic_postgresql == False
+  when: not generic_postgresql
 
 - name: Copy postgresql.conf
   template:
@@ -71,7 +71,7 @@
     owner: postgres
     group: postgres
     mode: 0600
-  when: generic_postgresql == False
+  when: not generic_postgresql
 
 - name: Start and enable the postgres service
   service:
