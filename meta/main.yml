@@ -1,0 +1,22 @@
+---
+galaxy_info:
+
+  role_name: postgres
+  author: pescobar
+  description: Install postgres database and create db and user
+  company: sciCORE - University of Basel - Swiss Institute of Bioinformatics SIB
+  license: GPLv3
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: EL
+      versions:
+        - 7
+
+  galaxy_tags:
+    - db
+    - database
+    - postgres
+    - postgresql
+
+dependencies: []

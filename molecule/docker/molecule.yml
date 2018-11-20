@@ -1,0 +1,37 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: centos7-systemd-docker
+    image: centos/systemd
+    # image: retr0h/centos7-systemd-ansible:latest
+    # image: centos:7
+    privileged: True
+    command: /usr/sbin/init
+    # volumes:
+    #   - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    env:
+      LC_ALL: "en_US.UTF-8"
+      LANG: "en_US.UTF-8"
+provisioner:
+  name: ansible
+  options:
+    become: True
+  lint:
+    name: ansible-lint
+    options:
+      R: True
+      r: "/data/ansible/ansible-lint-custom-rules"
+scenario:
+  name: docker
+verifier:
+  name: testinfra
+  directory: ../tests
+  options:
+    verbose: True
+  lint:
+    name: flake8
