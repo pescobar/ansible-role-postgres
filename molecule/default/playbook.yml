@@ -2,11 +2,11 @@
 - name: Converge
   hosts: all
   gather_facts: False
-  become: True
+  become: true
   tasks:
     - name: Install python for Ansible
       raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
-      become: True
+      become: true
       changed_when: False
 
 - name: Converge
