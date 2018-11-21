@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/pescobar/ansible-role-postgres.svg?branch=master)](https://travis-ci.org/pescobar/ansible-role-postgres)
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-pescobar.postgres-blue.svg)](https://galaxy.ansible.com/pescobar/postgres)
 
-ansible-role-postgres
+pescobar.postgres
 =========
 
 Install postgresql database and create a db and a user
@@ -33,7 +33,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: ansible-role-postgres,
+         - { role: pescobar.postgres,
 	 	   postgres_user_to_create: "user1",
 		   postgress_user_password: "coolP4ss",
 		   postgres_db_to_create: 'cooldb'}
