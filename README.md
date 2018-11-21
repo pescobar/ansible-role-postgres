@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/pescobar/ansible-role-postgres.svg?branch=master)](https://travis-ci.org/pescobar/ansible-role-postgres)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-pescobar.postgres-blue.svg)](https://galaxy.ansible.com/pescobar/postgres)
 
 ansible-role-postgres
 =========
