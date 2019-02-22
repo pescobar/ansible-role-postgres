@@ -12,10 +12,9 @@
 
 - name: Install postgres rpms
   yum:
-    name: "{{ item }}"
+    name:
+      "{{ postgres_packages }}"
     state: present
-  with_items:
-    "{{ postgres_packages }}"
 
 - name: Check if postgres has been initialized
   stat:
