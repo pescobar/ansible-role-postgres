@@ -18,5 +18,3 @@ postgres_user_to_create: 'testuser1'
 postgress_user_password: 'testpasswd1'
 
 postgres_db_to_create: 'testdb1'
-
-generic_postgresql: True
